@@ -6,17 +6,20 @@ function Technology({
   name,
   description,
   imageUrl,
+  whiteBackground,
 }: {
   name: string;
   description: string;
   imageUrl: string;
+  whiteBackground?: boolean;
 }) {
+  const shouldWhiteBg = whiteBackground || false;
   return (
     <div className="flex flex-row items-center bg-zinc-100 dark:bg-zinc-800 rounded-none p-4 border border-zinc-300 dark:border-zinc-700">
       <Image
         src={imageUrl}
         alt={name}
-        className="w-auto h-16 mr-4 duration-200"
+        className={`w-auto h-16 mr-4 antialiase duration-200 ${shouldWhiteBg && "bg-zinc-300 rounded-full border-1"}`}
         width={200}
         height={200}
       />
@@ -56,6 +59,7 @@ export default function Stack() {
           name="NextJS"
           description="NextJS is something I avoided for far too long. I started using it for my Autumn internship, and now it powers my personal website!"
           imageUrl="/nextjs.svg"
+          whiteBackground
         />
         <Technology
           name="PostgreSQL"
