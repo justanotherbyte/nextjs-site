@@ -18,7 +18,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Viswa Marepalli",
-  description: "Hey there! I'm Viswa, an incoming Electronic and Information Engineering student at Imperial College London. My interests lie primarily in Robotics, FPGAs and Quantum Computing.",
+  description:
+    "Hey there! I'm Viswa, an incoming Electronic and Information Engineering student at Imperial College London. My interests lie primarily in Robotics, FPGAs and Quantum Computing.",
 };
 
 export default function RootLayout({
@@ -28,11 +29,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className="dark:bg-zinc-900 antialiased"
-      >
+      <body className="dark:bg-zinc-900 antialiased">
         <Navbar />
-        <main className="container mx-auto max-w-screen-xl p-8">{children}</main>
+        <main className="container mx-auto max-w-screen-xl p-8">
+          {children}
+        </main>
         <Footer />
       </body>
     </html>

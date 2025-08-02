@@ -39,17 +39,17 @@ export default function Stack() {
           name="Python"
           description="This is the language I'm the most proficient in. I do my Machine Learning and Data Science work in Python."
           imageUrl="/python.png"
-        ></Technology>
+        />
         <Technology
           name="Rust"
           description="I do a lot of embedded development in Rust and also on the web using the Axum framework."
           imageUrl="/rust-lang.png"
-        ></Technology>
+        />
         <Technology
           name="TypeScript"
           description="I recently picked up TypeScript during my internship at Autumn. I plan on using it for my future general web development needs."
           imageUrl="/typescript.png"
-        ></Technology>
+        />
         <Technology
           name="Django"
           description="I've loved Django for a while now, and have used it in all my SSR web apps."
