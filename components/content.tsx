@@ -9,10 +9,14 @@ import rehypeKatex from "rehype-katex";
 import { useEffect } from "react";
 
 export default function ArticleContent({ content }: { content: string }) {
-    useEffect(() => {
-        hljs.highlightAll();
-    }, []);
-    return (
-        <Markdown children={content} remarkPlugins={[remarkGfm, remarkMath]} rehypePlugins={[rehypeKatex]} />
-    )
+  useEffect(() => {
+    hljs.highlightAll();
+  }, []);
+  return (
+    <Markdown
+      children={content}
+      remarkPlugins={[remarkGfm, remarkMath]}
+      rehypePlugins={[rehypeKatex]}
+    />
+  );
 }
