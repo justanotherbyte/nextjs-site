@@ -3,6 +3,7 @@ import ProjectsGrid from "@/components/grids/projects-grid";
 import PublicationsGrid from "@/components/grids/publications-grid";
 import ExperienceGrid from "@/components/grids/experience-grid";
 import Stack from "@/components/grids/stack-grid";
+import ReadingGrid from "@/components/grids/reading-grid";
 
 import pool from "@/lib/db";
 
@@ -29,6 +30,8 @@ export default async function Home() {
       <PublicationsGrid />
       <br />
       <Stack />
+      <br />
+      <ReadingGrid />
     </>
   );
 }

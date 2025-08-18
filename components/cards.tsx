@@ -114,3 +114,30 @@ export function SkeletonCard() {
     </div>
   );
 }
+
+export function BookCard({
+  name,
+  author,
+  description,
+  image,
+}: {
+  name: string;
+  author: string;
+  description: string;
+  image: string;
+}) {
+  return (
+    <div className="flex flex-row bg-zinc-100 dark:bg-zinc-800 rounded-none border border-zinc-300 dark:border-zinc-700">
+      <img className="w-35 h-auto" src={image} />
+      <div className="flex flex-col p-4">
+        <h3 className="text-zinc-900 dark:text-white">{name}</h3>
+        <p className="text-zinc-600 dark:text-zinc-400 whitespace-pre-line text-sm">
+          {author}
+        </p>
+        <p className="text-zinc-600 dark:text-zinc-400 whitespace-pre-line mt-3">
+          {description}
+        </p>
+      </div>
+    </div>
+  );
+}
