@@ -6,6 +6,8 @@ import "./globals.css";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 
+import { Databuddy } from "@databuddy/sdk";
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -36,6 +38,8 @@ export default function RootLayout({
         </main>
         <Footer />
       </body>
+
+      <Databuddy clientId="YRzXTWoOPm885oU7xpDSb" enableBatching={true} />
     </html>
   );
 }

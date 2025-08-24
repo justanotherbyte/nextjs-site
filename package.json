@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@databuddy/sdk": "^1.4.2",
     "@headlessui/react": "^2.2.4",
     "@mdx-js/loader": "^3.1.0",
     "@mdx-js/react": "^3.1.0",
