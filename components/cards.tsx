@@ -120,17 +120,19 @@ export function BookCard({
   author,
   description,
   image,
+  link,
 }: {
   name: string;
   author: string;
   description: string;
   image: string;
+  link: string;
 }) {
   return (
     <div className="flex flex-row bg-zinc-100 dark:bg-zinc-800 rounded-none border border-zinc-300 dark:border-zinc-700">
       <img className="w-35 h-auto object-cover" src={image} />
       <div className="flex flex-col p-4">
-        <h3 className="text-zinc-900 dark:text-white">{name}</h3>
+        <a className="text-zinc-900 dark:text-white hover:underline" href={link} target="_blank">{name}</a>
         <p className="text-zinc-600 dark:text-zinc-400 whitespace-pre-line text-sm">
           {author}
         </p>

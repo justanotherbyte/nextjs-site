@@ -17,6 +17,7 @@ export default async function ReadingGrid() {
             author={book.author}
             description={book.description}
             image={book.image}
+            link={book.link}
           />
         ))}
       </div>

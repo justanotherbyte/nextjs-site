@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
 // Components
@@ -8,15 +8,7 @@ import Footer from "@/components/footer";
 
 import { Databuddy } from "@databuddy/sdk";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+const jbMono = JetBrains_Mono()
 
 export const metadata: Metadata = {
   title: "Viswa Marepalli",
@@ -30,7 +22,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={jbMono.className}>
       <body className="dark:bg-zinc-900 antialiased">
         <Navbar />
         <main className="container mx-auto max-w-screen-xl p-8">

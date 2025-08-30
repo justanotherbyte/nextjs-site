@@ -23,4 +23,5 @@ export type Book = {
   author: string;
   description: string;
   image: string;
+  link: string;
 };
