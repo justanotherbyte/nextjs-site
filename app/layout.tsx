@@ -8,7 +8,9 @@ import Footer from "@/components/footer";
 
 import { Databuddy } from "@databuddy/sdk";
 
-const jbMono = JetBrains_Mono()
+const jbMono = JetBrains_Mono({
+  subsets: ["latin"]
+})
 
 export const metadata: Metadata = {
   title: "Viswa Marepalli",
