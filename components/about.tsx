@@ -26,7 +26,7 @@ export default function About() {
 
         <br />
         <p className="dark:text-zinc-200">
-          Hey there! I'm Viswa, an incoming{" "}
+          Hey there! I'm Viswa, a 1st year{" "}
           <a
             className="font-semibold underline dark:hover:text-zinc-400 duration-200"
             href="https://www.imperial.ac.uk/study/courses/undergraduate/electronic-information-meng/"
