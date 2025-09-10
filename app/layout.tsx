@@ -15,7 +15,7 @@ const jbMono = JetBrains_Mono({
 export const metadata: Metadata = {
   title: "Viswa Marepalli",
   description:
-    "Hey there! I'm Viswa, an incoming Electronic and Information Engineering student at Imperial College London. My interests lie primarily in Robotics, FPGAs and Quantum Computing.",
+    "Hey there! I'm Viswa, a 1st year Electronic and Information Engineering student at Imperial College London. My interests lie primarily in Robotics, FPGAs and Quantum Computing.",
 };
 
 export default function RootLayout({
