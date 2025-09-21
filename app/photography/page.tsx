@@ -35,7 +35,7 @@ export default function Photography() {
                         <Image
                             src={`/data/photos/img_${i}.jpg`}
                             alt={`Photo ${i + 1}`}
-                            className="rounded-sm h-full transition-transform duration-200 ease-in-out group-hover:scale-110 object-cover grayscale hover:grayscale-0"
+                            className="rounded-sm h-full transition-transform duration-200 ease-in-out group-hover:scale-110 object-cover"
                             width={600}
                             height={600}
                         />
