@@ -51,15 +51,14 @@ export default function Stack() {
           imageUrl="/typescript.png"
         />
         <Technology
-          name="Django"
-          description="I've loved Django for a while now, and have used it in all my SSR web apps."
-          imageUrl="/django.svg"
+          name="Google JAX"
+          description="I began experimenting with Google JAX and loved its NumPy-esque syntax and power to easily scale up numerical operations."
+          imageUrl="/google-jax.png"
         />
         <Technology
-          name="NextJS"
-          description="NextJS is something I avoided for far too long. I started using it for my Autumn internship, and now it powers my personal website!"
-          imageUrl="/nextjs.svg"
-          whiteBackground
+          name="SystemVerilog"
+          description="I've recently begun learning SystemVerilog in an effort to explore FPGA technology and Hardware Verification. I promise, its not a latch..."
+          imageUrl="/systemverilog.svg"
         />
         <Technology
           name="PostgreSQL"

@@ -66,7 +66,7 @@ export default function About() {
         <p className="dark:text-zinc-200">
           The IB piqued my interest in academic research, having written papers
           on{" "}
-          <a className="underline duration-200 hover:text-zinc-400" href="/">
+          <a className="underline duration-200 hover:text-zinc-400" href="https://en.wikipedia.org/wiki/Nelder%E2%80%93Mead_method">
             modelling populations using differential equations and simplex-based
             optimizations
           </a>{" "}
@@ -74,8 +74,7 @@ export default function About() {
           <a className="underline duration-200 hover:text-zinc-400" href="/">
             Euler's Pendulum and Lagrangian Mechanics
           </a>{" "}
-          for the first time (I am waiting for permission from the IB to say its
-          okay to publish these).
+          for the first time.
         </p>
         <br />
         <p className="dark:text-zinc-200">
