@@ -40,14 +40,13 @@ export default function About() {
           >
             Imperial College London
           </a>
-          . My interests lie primarily in Robotics, FPGAs and Quantum Computing.
+          . My interests lie primarily in Rocketry, Robotics, FPGAs and Quantum Computing.
         </p>
         <br />
         <p className="dark:text-zinc-200">
           While my interests lie pretty far & wide, my ambition lies in
-          developing powerful Robotics for interstellar travel, conducting FPGA
-          research, both for Robotics and experimental Physics, and advancing
-          Quantum Computing.
+          developing powerful systems for interstellar travel, whether that's through radiation-hardened FPGA
+          Avionics systems or assistive Robotics for deep-space travel.
         </p>
         <br />
         <p className="dark:text-zinc-200">
@@ -80,10 +79,10 @@ export default function About() {
         <p className="dark:text-zinc-200">
           I'm also an avid{" "}
           <Link
-            href="/publications"
+            href="#launches"
             className="underline duration-200 hover:text-zinc-400"
           >
-            writer
+            rocketry enthusiast
           </Link>
           , calisthenics enjoyer and{" "}
           <Link

@@ -4,6 +4,7 @@ import PublicationsGrid from "@/components/grids/publications-grid";
 import ExperienceGrid from "@/components/grids/experience-grid";
 import Stack from "@/components/grids/stack-grid";
 import ReadingGrid from "@/components/grids/reading-grid";
+import RocketLaunches from "@/components/launches";
 
 import pool from "@/lib/db";
 
@@ -32,6 +33,9 @@ export default async function Home() {
       <Stack />
       <br />
       <ReadingGrid />
+      <br />
+      <RocketLaunches />
+      <br />
     </>
   );
 }
