@@ -99,7 +99,7 @@ export default function About() {
           <a href="mailto:reachvishm+site@gmail.com"> Email</a> /
           <a href="data/cv.pdf"> CV</a> /
           <a href="https://x.com/justanotherbyte"> Twitter</a> /
-          <a href="https://www.linkedin.com/in/viswa-marepalli/"> LinkedIn</a> /
+          <a href="https://www.linkedin.com/in/mviswa/"> LinkedIn</a> /
           <a href="https://github.com/justanotherbyte"> GitHub</a>
         </p>
       </div>
