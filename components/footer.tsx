@@ -4,7 +4,7 @@ export default function Footer() {
   return (
     <footer className="container mx-auto max-w-screen-xl p-8">
       <div className="grid grid-cols-3 dark:text-zinc-500">
-        <div>© 2025 Viswa Marepalli</div>
+        <div>© 2026 Viswa Marepalli</div>
         <div className="text-center justify-self-center">
           <a href="#aboutme" className="hover:text-zinc-300 duration-200">
             About{" "}
