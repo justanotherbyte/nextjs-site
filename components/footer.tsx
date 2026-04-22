@@ -52,7 +52,7 @@ export default function Footer() {
             />
           </a>
           <a
-            href="https://www.linkedin.com/in/viswa-marepalli/"
+            href="https://www.linkedin.com/in/mviswa/"
             target="_blank"
           >
             <Image
