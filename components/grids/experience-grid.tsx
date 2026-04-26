@@ -7,7 +7,7 @@ export const revalidate = 3600;
 
 export async function generateStaticParams() {
   const experiences = await pool.query(
-    `SELECT id FROM experience ORDER BY id DESC LIMIT 1`,
+    `SELECT id FROM experience WHERE display = true ORDER BY id DESC`,
   );
   return experiences.rows.map((experience) => ({
     id: experience.id,
@@ -16,13 +16,17 @@ export async function generateStaticParams() {
 
 export default async function ExperienceGrid() {
   const query = await pool.query(
-    `SELECT * FROM experience ORDER BY id DESC LIMIT 1`,
+    `SELECT * FROM experience WHERE display = true ORDER BY id DESC`,
   );
   const experiences: Experience[] = query.rows;
+  const gridCols = {
+    1: "md:grid-cols-1",
+    2: "md:grid-cols-2",
+  }[experiences.length] || "md:grid-cols-1"
 
   return (
     <Section id="experience" name="Experience" moreInfo="/experience">
-      <div className="grid md:grid-cols-1 gap-x-2 sm:grid-cols-1 md:gap-y-0 gap-y-2">
+      <div className={`grid ${gridCols} gap-x-2 sm:grid-cols-1 gap-y-2`}>
         {experiences.map((experience: Experience) => (
           <ExperienceCard
             key={experience.id}
@@ -36,6 +40,6 @@ export default async function ExperienceGrid() {
           />
         ))}
       </div>
-    </Section>
+    </Section >
   );
 }
