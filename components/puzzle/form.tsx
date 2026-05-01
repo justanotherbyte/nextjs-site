@@ -24,7 +24,7 @@ export default function PuzzleForm({ puzzle }: { puzzle: Puzzle }) {
     }
 
     return (
-        <Section id="puzzle" name="Monthly Puzzle" description="A monthly puzzle you can solve with some programming!">
+        <Section id="puzzle" name="Monthly Puzzle" description="A monthly puzzle you can solve with some programming! Inspired by AoC but themed to my interests!">
             <div className="grid sm:grid-cols-1 md:grid-cols-2 space-x-2 space-y-2">
                 <code className="bg-zinc-800 text-zinc-400 cursor-pointer break-words text-wrap" onDoubleClick={copyInput}>
                     {puzzle.input}
