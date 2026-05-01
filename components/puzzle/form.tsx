@@ -5,6 +5,7 @@ import Markdown from "react-markdown"
 import Section from "../section"
 import { checkAnswer } from "@/app/actions"
 import { Puzzle } from "@/lib/types"
+import { LoaderCircle } from "lucide-react"
 
 const initialState = {
     answerCorrect: false,
@@ -35,7 +36,9 @@ export default function PuzzleForm({ puzzle }: { puzzle: Puzzle }) {
             </div>
             <form className="flex gap-x-2 mt-2" action={formAction}>
                 <input className="text-zinc-700 bg-zinc-100 dark:bg-zinc-800 dark:text-white outline-none focus:ring-none ring ring-zinc-300 dark:ring-zinc-600 w-full px-3" type="text" name="answer" />
-                <button className="text-zinc-100 dark:text-zinc-200 bg-blue-500 p-2 hover:bg-blue-600 disabled:bg-zinc-800" type="submit" disabled={pending}>Submit</button>
+                <button className="text-zinc-100 dark:text-zinc-200 bg-blue-500 p-2 hover:bg-blue-600 disabled:bg-zinc-800" type="submit" disabled={pending}>
+                    {!pending ? "Submit" : <LoaderCircle className="animate-spin" />}
+                </button>
             </form>
             {!state.attempted ? null : (state.answerCorrect
                 ? <p className="text-center text-emerald-200 mt-2">Congratulations! You got it correct!</p>

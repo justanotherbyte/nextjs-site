@@ -8,15 +8,13 @@ const schema = z.object({
     answer: z.string()
 })
 
-export async function checkAnswer(puzzleId: number, initialState: any, formData: FormData) {
+export async function checkAnswer(puzzleId: number, _: any, formData: FormData) {
+    const validatedFields = schema.safeParse({
+        answer: formData.get("answer")
+    });
     const query = await pool.query("SELECT answer FROM puzzles WHERE id = $1", [puzzleId]);
     const puzzle: Puzzle = query.rows.at(0);
     const answer = puzzle.answer;
-
-    console.log("Received checkAnswer server action");
-    const validatedFields = schema.safeParse({
-        answer: formData.get("answer"),
-    })
 
     if (!validatedFields.success) {
         return {
