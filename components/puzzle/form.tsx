@@ -27,7 +27,7 @@ export default function PuzzleForm({ puzzle }: { puzzle: Puzzle }) {
     return (
         <Section id="puzzle" name="Monthly Puzzle" description="A monthly puzzle you can solve with some programming! Inspired by AoC but themed to my interests!">
             <div className="grid sm:grid-cols-1 md:grid-cols-2 space-x-2 space-y-2">
-                <pre className="bg-zinc-100 p-2 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 cursor-pointer break-words text-wrap border border-zinc-300 dark:border-zinc-700" onDoubleClick={copyInput}>
+                <pre className="overflow-y-auto bg-zinc-100 p-2 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 cursor-pointer break-words text-wrap border border-zinc-300 dark:border-zinc-700" onDoubleClick={copyInput}>
                     {puzzle.input}
                 </pre>
                 <div className="text-zinc-500 dark:text-zinc-400 [&_p:not(:last-child)]:mb-2 p-2">
