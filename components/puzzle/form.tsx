@@ -26,16 +26,16 @@ export default function PuzzleForm({ puzzle }: { puzzle: Puzzle }) {
     return (
         <Section id="puzzle" name="Monthly Puzzle" description="A monthly puzzle you can solve with some programming! Inspired by AoC but themed to my interests!">
             <div className="grid sm:grid-cols-1 md:grid-cols-2 space-x-2 space-y-2">
-                <code className="bg-zinc-800 text-zinc-400 cursor-pointer break-words text-wrap" onDoubleClick={copyInput}>
+                <pre className="bg-zinc-100 p-2 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 cursor-pointer break-words text-wrap border border-zinc-300 dark:border-zinc-700" onDoubleClick={copyInput}>
                     {puzzle.input}
-                </code>
-                <div className="text-zinc-400 [&_p:not(:last-child)]:mb-2">
+                </pre>
+                <div className="text-zinc-500 dark:text-zinc-400 [&_p:not(:last-child)]:mb-2 p-2">
                     <Markdown children={puzzle.description} />
                 </div>
             </div>
             <form className="flex gap-x-2 mt-2" action={formAction}>
-                <input className="text-white outline-none focus:ring-none ring ring-zinc-600 w-full px-3" type="text" name="answer" />
-                <button className="text-zinc-200 bg-blue-500 p-2 hover:bg-blue-600 disabled:bg-zinc-800" type="submit" disabled={pending}>Submit</button>
+                <input className="text-zinc-700 bg-zinc-100 dark:bg-zinc-800 dark:text-white outline-none focus:ring-none ring ring-zinc-300 dark:ring-zinc-600 w-full px-3" type="text" name="answer" />
+                <button className="text-zinc-100 dark:text-zinc-200 bg-blue-500 p-2 hover:bg-blue-600 disabled:bg-zinc-800" type="submit" disabled={pending}>Submit</button>
             </form>
             {!state.attempted ? null : (state.answerCorrect
                 ? <p className="text-center text-emerald-200 mt-2">Congratulations! You got it correct!</p>
