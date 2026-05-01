@@ -25,3 +25,11 @@ export type Book = {
   image: string;
   link: string;
 };
+
+export type Puzzle = {
+  id: number;
+  name: string;
+  description: string;
+  input: string;
+  answer?: string;
+}
