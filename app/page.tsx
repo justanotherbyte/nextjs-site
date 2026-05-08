@@ -5,15 +5,20 @@ import ExperienceGrid from "@/components/grids/experience-grid";
 import Stack from "@/components/grids/stack-grid";
 import Puzzle from "@/components/puzzle/puzzle";
 
-import pool from "@/lib/db";
+import { db } from "@/lib/db";
+import { articles } from "@/drizzle/schema";
+import { desc } from "drizzle-orm";
 
 export const revalidate = 3600;
 
 export async function generateStaticParams() {
-  const articles = await pool.query(
-    `SELECT slug FROM articles ORDER BY created_at DESC LIMIT 4`,
-  );
-  return articles.rows.map((article) => ({
+  const article_slugs = await db
+    .select({slug: articles.slug})
+    .from(articles)
+    .orderBy(desc(articles.createdAt))
+    .limit(4);
+
+  return article_slugs.map((article) => ({
     slug: article.slug,
   }));
 }

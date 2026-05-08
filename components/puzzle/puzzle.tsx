@@ -1,12 +1,17 @@
 import PuzzleForm from "./form";
-import { Puzzle as PuzzleT } from "@/lib/types";
-import pool from "@/lib/db";
+import { db } from "@/lib/db";
+import { puzzles } from "@/drizzle/schema";
+import { desc } from "drizzle-orm";
 
 export const revalidate = 3600;
 
 export default async function Puzzle() {
-    const query = await pool.query("SELECT id, name, input, description FROM puzzles ORDER BY id DESC LIMIT 1");
-    const puzzle: PuzzleT = query.rows.at(0);
+    const { id, name, input, description } = puzzles;
+    const [puzzle] = await db.select({ id, name, input, description })
+        .from(puzzles)
+        .orderBy(desc(puzzles.id))
+        .limit(1);
+
     return (
         <PuzzleForm puzzle={puzzle} />
     )

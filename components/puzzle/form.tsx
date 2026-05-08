@@ -4,15 +4,17 @@ import { useActionState } from "react"
 import Markdown from "react-markdown"
 import Section from "../section"
 import { checkAnswer } from "@/app/actions"
-import { Puzzle } from "@/lib/types"
 import { LoaderCircle } from "lucide-react"
+import { type Puzzle } from "@/drizzle/schema"
 
 const initialState = {
     answerCorrect: false,
     attempted: false
 }
 
-export default function PuzzleForm({ puzzle }: { puzzle: Puzzle }) {
+type PuzzleTeaser = Pick<Puzzle, "id" | "name" | "input" | "description">;
+
+export default function PuzzleForm({ puzzle }: { puzzle: PuzzleTeaser }) {
     const checkAnswerWithId = checkAnswer.bind(null, puzzle.id);
     const [state, formAction, pending] = useActionState(checkAnswerWithId, initialState);
 

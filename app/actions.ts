@@ -1,8 +1,9 @@
 'use server'
 
 import { z } from 'zod'
-import pool from '@/lib/db';
-import { Puzzle } from '@/lib/types';
+import { db } from '@/lib/db';
+import { puzzles, type Puzzle } from '@/drizzle/schema';
+import { eq } from 'drizzle-orm';
 
 const schema = z.object({
     answer: z.string()
@@ -12,9 +13,11 @@ export async function checkAnswer(puzzleId: number, _: any, formData: FormData) 
     const validatedFields = schema.safeParse({
         answer: formData.get("answer")
     });
-    const query = await pool.query("SELECT answer FROM puzzles WHERE id = $1", [puzzleId]);
-    const puzzle: Puzzle = query.rows.at(0);
-    const answer = puzzle.answer;
+
+    const [puzzle] = await db
+        .select({answer: puzzles.answer})
+        .from(puzzles)
+        .where(eq(puzzles.id, puzzleId));
 
     if (!validatedFields.success) {
         return {
@@ -23,7 +26,7 @@ export async function checkAnswer(puzzleId: number, _: any, formData: FormData) 
     }
 
     return {
-        answerCorrect: validatedFields.data.answer === answer,
+        answerCorrect: validatedFields.data.answer === puzzle.answer,
         attempted: true
     }
 }
