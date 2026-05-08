@@ -1,10 +1,3 @@
-import { Pool } from "pg";
+import { drizzle } from 'drizzle-orm/postgres-js';
 
-const pool = new Pool({
-    connectionString: process.env.DATABASE_URI!,
-    ssl: {
-        rejectUnauthorized: false,
-    }
-})
-
-export default pool;
+export const db = drizzle(process.env.DATABASE_URI!);

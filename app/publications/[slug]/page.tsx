@@ -1,15 +1,20 @@
-import pool from "@/lib/db";
+import { db } from "@/lib/db";
+import { articles, type Article } from "@/drizzle/schema";
+import { eq, desc } from "drizzle-orm";
 import ArticleContent from "@/components/content";
 import { notFound } from "next/navigation";
-import { Article } from "@/lib/types";
 
 export async function generateStaticParams() {
-  const articles = await pool.query(
-    `SELECT slug FROM articles WHERE published = true`,
-  );
-  return articles.rows.map((article) => ({
-    slug: article.slug,
-  }));
+    const selected_articles = await db
+        .select({slug: articles.slug})
+        .from(articles)
+        .where(eq(articles.published, true))
+        .orderBy(desc(articles.createdAt))
+        .limit(4);
+
+    return selected_articles.map((article) => ({
+        slug: article.slug,
+    }));
 }
 
 export const revalidate = 3600;
@@ -21,10 +26,10 @@ export default async function RenderedPublication({
 }) {
   const { slug } = await params;
 
-  const query = await pool.query(`SELECT * FROM articles WHERE slug = $1`, [
-    slug,
-  ]);
-  const article: Article = query.rows[0];
+  const [article] = await db
+    .select()
+    .from(articles)
+    .where(eq(articles.slug, slug));
 
   if (!article) {
     notFound();
@@ -44,7 +49,7 @@ export default async function RenderedPublication({
         {article.title}
       </h1>
       <p className="text-zinc-600 dark:text-zinc-400 text-sm">
-        {article.created_at.toDateString()}
+        {article.createdAt.toDateString()}
       </p>
       {!article.published && (
         <p className="text-zinc-600 dark:text-zinc-400 text-sm mt-2 italic">

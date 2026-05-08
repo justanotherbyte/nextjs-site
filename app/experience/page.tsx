@@ -1,20 +1,27 @@
 import { ExperienceCard } from "@/components/cards";
 import Section from "@/components/section";
-import pool from "@/lib/db";
-import type { Experience } from "@/lib/types";
+import { db } from "@/lib/db";
+import { experience, type Experience } from "@/drizzle/schema";
+import { desc } from "drizzle-orm";
 
 export const revalidate = 3600;
 
 export async function generateStaticParams() {
-    const experiences = await pool.query(`SELECT id FROM experience ORDER BY id DESC`);
-    return experiences.rows.map((experience) => ({
+    const experiences = await db
+        .select({id: experience.id})
+        .from(experience)
+        .orderBy(desc(experience.id));
+
+    return experiences.map((experience) => ({
         id: experience.id,
     }));
 }
 
 export default async function Experience() {
-    const query = await pool.query(`SELECT * FROM experience ORDER BY id DESC`);
-    const experiences: Experience[] = query.rows;
+    const experiences = await db
+        .select()
+        .from(experience)
+        .orderBy(desc(experience.id));
 
     return (
         <Section id="experience" name="Experience">

@@ -1,24 +1,20 @@
-import { Experience } from "@/lib/types";
-import pool from "@/lib/db";
 import { ExperienceCard } from "../cards";
 import Section from "../section";
+import { db } from "@/lib/db";
+import { experience, type Experience } from "@/drizzle/schema";
+import { eq, desc } from "drizzle-orm";
 
 export const revalidate = 3600;
 
 export async function generateStaticParams() {
-  const experiences = await pool.query(
-    `SELECT id FROM experience WHERE display = true ORDER BY id DESC`,
-  );
-  return experiences.rows.map((experience) => ({
-    id: experience.id,
-  }));
+  const experiences = await db.select({id: experience.id}).from(experience).where(eq(experience.display, true)).orderBy(desc(experience.id));
+  return experiences.map((e) => ({
+    id: e.id
+  }))
 }
 
 export default async function ExperienceGrid() {
-  const query = await pool.query(
-    `SELECT * FROM experience WHERE display = true ORDER BY id DESC`,
-  );
-  const experiences: Experience[] = query.rows;
+  const experiences = await db.select().from(experience).where(eq(experience.display, true)).orderBy(desc(experience.id));
   const gridCols = {
     1: "md:grid-cols-1",
     2: "md:grid-cols-2",
