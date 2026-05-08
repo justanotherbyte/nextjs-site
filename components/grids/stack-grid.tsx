@@ -22,7 +22,10 @@ function Technology({
         className={`w-auto h-16 mr-4 antialiase duration-200 ${shouldWhiteBg && "bg-zinc-300 rounded-full border-1"}`}
         width={200}
         height={200}
-      />
+        style={{
+          maxWidth: "100%",
+          height: "auto"
+        }} />
       <div>
         <h3 className="text-lg font-bold dark:text-white">{name}</h3>
         <p className="text-zinc-600 dark:text-zinc-400">{description}</p>

@@ -38,11 +38,13 @@ export default function Photography() {
                             className="rounded-sm h-full transition-transform duration-200 ease-in-out group-hover:scale-110 object-cover"
                             width={600}
                             height={600}
-                        />
+                            style={{
+                                maxWidth: "100%",
+                                height: "auto"
+                            }} />
                     </div>
                 ))}
             </div>
-
             {/* Modal */}
             {
                 isModalOpen && selectedImage !== null && (
@@ -75,11 +77,14 @@ export default function Photography() {
                                 height={1200}
                                 onClick={(e) => e.stopPropagation()}
                                 onLoad={handleImageLoad}
-                            />
+                                style={{
+                                    maxWidth: "100%",
+                                    height: "auto"
+                                }} />
                         </div>
                     </div>
                 )
             }
         </Section >
-    )
+    );
 }

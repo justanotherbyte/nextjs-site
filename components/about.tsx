@@ -14,7 +14,10 @@ export default function About() {
           className="md:rounded-l-none w-full h-full object-cover sm:rounded-none"
           width={600}
           height={600}
-        />
+          style={{
+            maxWidth: "100%",
+            height: "auto"
+          }} />
       </div>
       <div className="relative p-8">
         <div className="flex space-x-2">
