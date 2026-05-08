@@ -26,10 +26,7 @@ export default function Footer() {
               className="h-8 w-8"
               width={24}
               height={24}
-              style={{
-                maxWidth: "100%",
-                height: "auto"
-              }} />
+            />
           </a>
           <a
             href="https://www.linkedin.com/in/viswa-marepalli/"
@@ -41,10 +38,7 @@ export default function Footer() {
               className="h-8 w-8"
               width={24}
               height={24}
-              style={{
-                maxWidth: "100%",
-                height: "auto"
-              }} />
+            />
           </a>
         </div>
         <div className="flex space-x-3 justify-self-end visible dark:hidden">
@@ -55,10 +49,7 @@ export default function Footer() {
               className="h-8 w-8"
               width={24}
               height={24}
-              style={{
-                maxWidth: "100%",
-                height: "auto"
-              }} />
+             />
           </a>
           <a
             href="https://www.linkedin.com/in/mviswa/"
@@ -70,10 +61,7 @@ export default function Footer() {
               className="h-8 w-8"
               width={24}
               height={24}
-              style={{
-                maxWidth: "100%",
-                height: "auto"
-              }} />
+            />
           </a>
         </div>
       </div>

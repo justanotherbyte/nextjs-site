@@ -74,10 +74,7 @@ export default function Photography() {
                                 height={1200}
                                 onClick={(e) => e.stopPropagation()}
                                 onLoad={handleImageLoad}
-                                style={{
-                                    maxWidth: "100%",
-                                    height: "auto"
-                                }} />
+                            />
                         </div>
                     </div>
                 )
