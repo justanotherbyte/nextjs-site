@@ -4,13 +4,14 @@ import { BlogCard } from "../cards";
 import Section from "../section";
 import { db } from "@/lib/db";
 import { articles, type Article } from "@/drizzle/schema";
-import { desc } from "drizzle-orm";
+import { eq, desc } from "drizzle-orm";
 
 
 export default async function PublicationsGrid() {
   const all_articles = await db
     .select()
     .from(articles)
+    .where(eq(articles.published, true))
     .orderBy(desc(articles.createdAt))
     .limit(4);
 
